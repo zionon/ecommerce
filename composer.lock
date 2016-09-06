@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "55e0189572197de0b563540cd8aae6d3",
-    "content-hash": "5bd58fd976f1ee3e9611bc37c006ec46",
+    "hash": "489bb78ca1a9cbfef4c07b17ff719919",
+    "content-hash": "ff629920309091b5240d65dcfc99c42e",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1933,6 +1933,56 @@
                 "environment"
             ],
             "time": "2015-05-30 15:59:26"
+        },
+        {
+            "name": "zionon/multiauth",
+            "version": "v1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zionon/MultiAuth.git",
+                "reference": "ec59c0360cbf3de34a0627cbad5c1fe7b1d20232"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zionon/MultiAuth/zipball/ec59c0360cbf3de34a0627cbad5c1fe7b1d20232",
+                "reference": "ec59c0360cbf3de34a0627cbad5c1fe7b1d20232",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/auth": "~5.1",
+                "illuminate/console": "~5.1",
+                "illuminate/database": "~5.1",
+                "illuminate/filesystem": "~5.1",
+                "illuminate/support": "~5.1",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Zionon\\MultiAuth\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "zionon",
+                    "email": "hgh110720@gmail.com"
+                }
+            ],
+            "description": "MultiAuth for Laravel 5.1",
+            "keywords": [
+                "auth",
+                "laravel",
+                "login",
+                "multi",
+                "multiauth",
+                "signin",
+                "user"
+            ],
+            "time": "2016-09-06 09:21:44"
         }
     ],
     "packages-dev": [

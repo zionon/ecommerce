@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Route;
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -35,10 +36,24 @@ class RouteServiceProvider extends ServiceProvider
      * @param  \Illuminate\Routing\Router  $router
      * @return void
      */
+
     public function map(Router $router)
     {
-        $router->group(['namespace' => $this->namespace], function ($router) {
-            require app_path('Http/routes.php');
+        $this->mapFront();
+        $this->mapBack();
+    }
+    public function mapFront()
+    {
+        Route::group(['namespace' => $this->namespace], function ($route) {
+            require base_path('routes/front.php');
+        });
+    }
+    public function mapBack()
+    {
+        Route::group([
+            'namespace' => $this->namespace
+        ], function ($route) {
+            require base_path('routes/back.php');
         });
     }
 }
