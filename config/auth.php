@@ -5,7 +5,7 @@ return [
     'multi-auth' => [
          'user' => [
             'driver' => 'eloquent',
-            'model'  => App\User::class
+            'model'  => App\Models\User::class
         ]
         // 'admin' => [
         //     'driver' => 'eloquent',

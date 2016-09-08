@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+//Auth
+Route::get('register', '');
+Route::post('register', '');
+Route::get('login', '');
+Route::post('login', '');
