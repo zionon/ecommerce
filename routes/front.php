@@ -17,7 +17,22 @@ Route::get('/', function () {
 
 
 //Auth
-Route::get('register', '');
-Route::post('register', '');
-Route::get('login', '');
-Route::post('login', '');
+Route::group(['namespace' => 'Auth'], function () {
+	Route::get('register', 'UserauthController@getRegister');
+	Route::post('register', 'UserauthController@postRegister');
+	Route::get('login', 'UserauthController@getLogin');
+	Route::post('login', 'UserauthController@postLogin');
+	Route::get('logout', 'UserauthController@getLogout');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+	Route::get('home', function () {
+		$user = Auth::user()->get();
+		dd($user);
+	});
+});
+
+Route::get('test', function () {
+	$value = Request::session()->all();
+	dd($value);
+});
