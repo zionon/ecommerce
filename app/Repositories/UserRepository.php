@@ -32,13 +32,19 @@ class UserRepository
 	 */
 	public function createNewUser(array $data)
 	{
-		return User::create([
+		return $this->user->create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
 	}
-
+	
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
 	public function validForCreation(array $data)
 	{
 		return Validator::make($data, [
@@ -46,5 +52,14 @@ class UserRepository
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
+	}
+
+	/**
+	 * 
+	 */
+	public function updateLastIpAndLastLogin($request, $user)
+	{
+		$user->last_ip = $request->ip();
+		$user->save();
 	}
 }

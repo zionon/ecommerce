@@ -32,4 +32,9 @@ class AuthService
 	{
 		return $this->user->createNewUser($data);
 	}
+
+	public function setLastIpAndLastLoginTime($request, $user)
+	{
+		$this->user->updateLastIpAndLastLogin($request, $user);
+	}
 }

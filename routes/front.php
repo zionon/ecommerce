@@ -27,7 +27,7 @@ Route::group(['namespace' => 'Auth'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('home', function () {
-		$user = Auth::user()->get();
+		$user = Auth::user();
 		dd($user);
 	});
 });

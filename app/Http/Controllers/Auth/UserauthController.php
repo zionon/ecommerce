@@ -16,6 +16,7 @@ class UserauthController extends Controller
 {
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
+    protected $authModel = 'user';
     protected $loginView = 'auth.user.login';
     protected $registerView = 'auth.user.register';
     protected $loginPath = 'login';
@@ -51,5 +52,14 @@ class UserauthController extends Controller
     protected function create(array $data)
     {
         return $this->authService->setCreateNewUser($data);
+    }
+
+    /**
+     * 
+     */
+    protected function authenticated($request, $user)
+    {
+        // $this->authService->setLastIpAndLastLoginTime($request, $user);
+        return redirect($this->redirectPath);
     }
 }
